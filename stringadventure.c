@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(void)
 {
@@ -9,15 +10,15 @@ int main(void)
   scanf("%s", name);						//Zuweisung des Spielernamens (String)
   printf("Hallo %s, willkommen beim Testadventure \n", name);
   printf("Wähle bitte eine Charakterklasse aus \n");
-  printf("Krieger (1) \nBogenschütze (2)\nMagier (3)\n");
-  int playerclass;						//RPG-Klassendeklaration
-  int warrior;
-  int archer;
-  int mage;
-  scanf("%i", &playerclass);
-  while ( playerclass == 1 || 2 ||  3 || playerclass != 1 || 2 || 3 ) //Prüft ob die richtige Eingabe getätigt wurde
+  printf("Krieger (k) \nBogenschütze (a)\nMagier (m)\n");
+  char playerclass[2];						//RPG-Klassendeklaration
+  char warrior[2];
+  char archer[2];
+  char mage[2];
+  scanf("%s", playerclass);
+  while (1) //Prüft ob die richtige Eingabe getätigt wurde
   {
-   if ( playerclass == 1)					//Prüfung der RPG-KLasse
+   if ( strcmp(playerclass, "k") == 0)					//Prüfung der RPG-KLasse
    {
     printf("Du hast die Klasse Krieger gewählt!\n");
     playerclass == warrior;					//Deklaration für Spätere RPG-Events
@@ -41,9 +42,9 @@ int main(void)
        }
         else
   	 {	
-  	  printf("Du hast eine falsche Eingabe getätigt! \n");									//Wenn weder 1-3 eingegeben wird musst du nochmals eingeben, damit Spiel weiter geht
-	  printf("Wähle erneut zwischen Krieger ('1' eingeben!) Bogenschütze ('2' eingeben!) oder Magier ('3' eingeben!) \n");  
- 	  scanf("%i", &playerclass);
+  	  printf("Du hast eine falsche Eingabe getätigt! \n");	//Wenn weder 1-"a" eingegeben wird musst du nochmals eingeben, damit Spiel weiter geht
+	  printf("Wähle erneut zwischen Krieger ('k' eingeben!) Bogenschütze ('a' eingeben!) oder Magier ( 'm' eingeben!) \n");  
+ 	  scanf("%s", playerclass);
 	 }
       }
      
@@ -51,12 +52,12 @@ int main(void)
   }
   printf("%s, wähle für deinen Charakter bitte eine Rasse aus! \n", name);
   printf("Mensch (4)\nElf (5)\nZwerg (6)\nOrk (7)\n");
-  int playerrace;
-  int human;
-  int elven;
-  int dwarf;
-  int ork;
-  scanf("%i", &playerrace);
+  char playerrace;
+  char human;
+  char elven;
+  char dwarf;
+  char ork;
+  scanf("%c", &playerrace);
   while ( playerrace == 4 || 5 || 6 || 7 || playerrace != 4 || 5 || 6 || 7)
   {
    if ( playerrace == 4 )
@@ -93,7 +94,7 @@ int main(void)
        {
         printf("Du hast eine falsche Eingabe getätigt! \n");
 	printf("Wähle erneut zwischen Mensch ('4'), Elf ('5'), Zwerg ('6') oder Ork ('7')\n");
-        scanf("%i", &playerrace);
+        scanf("%c", &playerrace);
        }
       }
      }
@@ -101,10 +102,10 @@ int main(void)
    }
    printf("%s, gebe deinem Charakter nun ein Geschlecht!\n", name);
    printf("Drücke 8 für männlich oder 9 für weiblich!\n");
-   int playergender;
-   int male;
-   int female;
-   scanf("%i", &playergender);
+   char playergender;
+   char male;
+   char female;
+   scanf("%c", &playergender);
    while ( playergender == 8 || 9 || playergender != 8 || 9 )
    { 
     if ( playergender == 8)
@@ -125,7 +126,7 @@ int main(void)
        {
         printf("Deine Eingabe war falsch!\n");
 	printf("Drücke erneut die Taste 8 für einen Charakter oder 9 für eine Charakterin!\n");
-	scanf("%i", &playergender);
+	scanf("%c", &playergender);
        }
       }
     }
