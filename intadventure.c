@@ -1,15 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>	//input-output
+#include <stdlib.h>	//allgemeines
+#include <string.h>	//string-funktionen
 
 //Dieses Textadventure ist ein reines Fanprojekt für Studienzwecke und kann frei von jedem weiterentwickelt werden!
 
 
 int main(void)
 {
-  char name[100];
+  char name[100]; 	//<-- Char Array = String
 
   printf("Gebe deinen Spielername ein: \n(Hinweis: Spielername ist ungleich Charaktername!)\n");
-  scanf("%s", name);						//Zuweisung des Spielernamens (String)
+  scanf("%s", name);						
+  //Zuweisung des Spielernamens (String)
+  //Bei Strings wird anders als bei char, int etc. kein Adressoperator & gebraucht
   printf("Hallo %s, willkommen beim Textadventure \n", name);
   printf("Wähle bitte eine Charakterklasse aus \n");
   printf("Krieger (1) \nBogenschütze (2)\nMagier (3)\n");
@@ -18,7 +21,10 @@ int main(void)
   int warrior;
   int archer;
   int mage;
-  scanf("%[^0-9]%d", check, &playerclass);
+  char iclass[20];
+  scanf("%[^0-9]%d", check, &playerclass); 
+  // [^0-9] ist hier um zu prüfen ob die Tastatureingabe zwischen 0-9 ist
+  // Buchstaben werden ignoriert!
   
   while (1) //Prüft ob die richtige Eingabe getätigt wurde
   {
@@ -26,6 +32,10 @@ int main(void)
    {
     printf("Du hast die Klasse Krieger gewählt!\n");
     playerclass == warrior;					//Deklaration für Spätere RPG-Events
+    strcpy( iclass, "Krieger");
+    //Man kann einem String nicht einfach einen anderen Wert zuweisen!
+    //Die Stringfunktion strcpy = String-Copy erfüllt diesen Zweck
+    //strcpy( Stringname, "NeuerWert")!r, =^ (Stringname = "NeuerWert")!f
     break;
    }
    else
@@ -34,6 +44,7 @@ int main(void)
      {
       printf("Du hast die Klasse Bogenschütze gewählt!\n");
       playerclass == archer;
+      strcpy(iclass, "Bogenschütze"); 
       break;
      }
       else
@@ -42,6 +53,7 @@ int main(void)
        {
         printf("Du hast die Klasse Magier gewählt!\n");
         playerclass == mage;
+	strcpy(iclass, "Magier");
         break;
        }
        else
@@ -61,6 +73,7 @@ int main(void)
   int elven;
   int dwarf;
   int ork;
+  char irace[10];
   scanf("%[^0-9]%d", check,  &playerrace);
   while (1)
   {
@@ -68,6 +81,7 @@ int main(void)
    { 
     printf("Du hast dich für einen Menschen entschieden!\n");
     playerrace == human;
+    strcpy(irace, "Mensch");
     break;
    }
     else 
@@ -76,6 +90,7 @@ int main(void)
      {
       printf("Du hast dich für einen Elfen entschieden!\n");
       playerrace == elven;
+      strcpy(irace, "Elf");
       break;
      }
      else
@@ -84,6 +99,7 @@ int main(void)
       {
        printf("Du hast dich für einen Zwerg entschieden!\n");
        playerrace == dwarf;
+       strcpy(irace, "Zwerg");
        break;
       }
       else
@@ -92,6 +108,7 @@ int main(void)
        {
         printf("Du hast dich für einen Ork entschieden!\n");
 	playerrace == ork;
+	strcpy(irace, "Ork");
 	break;
        }
        else
@@ -109,6 +126,7 @@ int main(void)
    int playergender;
    int male;
    int female;
+   char igend[10];
    scanf("%[^0-9]%d", check,  &playergender);
    while (1)
    { 
@@ -116,6 +134,7 @@ int main(void)
     {
      printf("Dein Charakter ist nun männlich!\n");
      playergender == male;
+     strcpy(igend, "männlich");
      break;
     }
      else
@@ -124,6 +143,7 @@ int main(void)
       { 
        printf("Deine Charakterin ist nun weiblich!\n");
        playergender == female;
+       strcpy(igend, "weiblich");
        break;
       }
        else
@@ -139,12 +159,17 @@ int main(void)
     scanf("%s", playername);
     printf("Wunderbar, dein Charakter heißt nun %s!\n", playername);
     printf("Willst du dir noch einmal alle deine Daten anzeigen lassen?\n");
-    printf("Für Ja drücke 'j' für Nein drücke 'n'\n");
-    char yesno;
-    scanf("%c", &yesno);
-    //if ( yesno == 'j')
-
-        
+    printf("Für Ja drücke 0 , für Nein drücke 1\n");
+    int yesno;
+    scanf("%d", &yesno);
+    if ( yesno = 0 )
+    {
+     printf("Dein Charakter heißt %s, hat die Klasse %s, ist ein %s und ist %s!\n\n", playername, iclass, irace, igend);
+    }
+    else {}
+    
+ 
+       
 
   return 0;
   
