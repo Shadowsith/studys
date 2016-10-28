@@ -10,12 +10,14 @@ int main(void)
   char name[100]; 	//<-- Char Array = String
 
   printf("Gebe deinen Spielername ein: \n(Hinweis: Spielername ist ungleich Charaktername!)\n");
+  fflush(stdout);
   scanf("%s", name);						
   //Zuweisung des Spielernamens (String)
   //Bei Strings wird anders als bei char, int etc. kein Adressoperator & gebraucht
   printf("Hallo %s, willkommen beim Textadventure \n", name);
   printf("Wähle bitte eine Charakterklasse aus \n");
   printf("Krieger (1) \nBogenschütze (2)\nMagier (3)\n");
+  fflush(stdout);
   int playerclass;                                              //RPG-Klassendeklaration 
   char check[100];
   int warrior;
@@ -31,7 +33,7 @@ int main(void)
    if ( playerclass == 1)					//Prüfung der RPG-KLasse
    {
     printf("Du hast die Klasse Krieger gewählt!\n");
-    playerclass == warrior;					//Deklaration für Spätere RPG-Events
+    playerclass = warrior;					//Deklaration für Spätere RPG-Events
     strcpy( iclass, "Krieger");
     //Man kann einem String nicht einfach einen anderen Wert zuweisen!
     //Die Stringfunktion strcpy = String-Copy erfüllt diesen Zweck
@@ -43,7 +45,7 @@ int main(void)
      if( playerclass == 2)
      {
       printf("Du hast die Klasse Bogenschütze gewählt!\n");
-      playerclass == archer;
+      playerclass = archer;
       strcpy(iclass, "Bogenschütze"); 
       break;
      }
@@ -52,7 +54,7 @@ int main(void)
        if ( playerclass == 3)
        {
         printf("Du hast die Klasse Magier gewählt!\n");
-        playerclass == mage;
+        playerclass = mage;
 	strcpy(iclass, "Magier");
         break;
        }
@@ -60,6 +62,7 @@ int main(void)
   	 {
   	  printf("Du hast eine falsche Eingabe getätigt! \n");			//Wenn weder 1-3 eingegeben wird musst du nochmals eingeben, damit Spiel weiter geht
 	  printf("Wähle erneut zwischen Krieger ('1' eingeben!) Bogenschütze ('2' eingeben!) oder Magier ('3' eingeben!) \n");  
+	  fflush(stdout);
  	  scanf("%[^0-9]%d", check,  &playerclass);
 	 }
       }
@@ -68,6 +71,7 @@ int main(void)
   }
   printf("%s, wähle für deinen Charakter bitte eine Rasse aus! \n", name);
   printf("Mensch (4)\nElf (5)\nZwerg (6)\nOrk (7)\n");
+  fflush(stdout);
   int playerrace;
   int human;
   int elven;
@@ -80,7 +84,7 @@ int main(void)
    if ( playerrace == 4 )
    { 
     printf("Du hast dich für einen Menschen entschieden!\n");
-    playerrace == human;
+    playerrace = human;
     strcpy(irace, "Mensch");
     break;
    }
@@ -89,7 +93,7 @@ int main(void)
      if ( playerrace == 5 )
      {
       printf("Du hast dich für einen Elfen entschieden!\n");
-      playerrace == elven;
+      playerrace = elven;
       strcpy(irace, "Elf");
       break;
      }
@@ -98,7 +102,7 @@ int main(void)
       if ( playerrace == 6 )
       {
        printf("Du hast dich für einen Zwerg entschieden!\n");
-       playerrace == dwarf;
+       playerrace = dwarf;
        strcpy(irace, "Zwerg");
        break;
       }
@@ -107,7 +111,7 @@ int main(void)
        if ( playerrace == 7 )
        {
         printf("Du hast dich für einen Ork entschieden!\n");
-	playerrace == ork;
+	playerrace = ork;
 	strcpy(irace, "Ork");
 	break;
        }
@@ -115,6 +119,7 @@ int main(void)
        {
         printf("Du hast eine falsche Eingabe getätigt! \n");
 	printf("Wähle erneut zwischen Mensch ('4'), Elf ('5'), Zwerg ('6') oder Ork ('7')\n");
+	fflush(stdout);
         scanf("%[^0-9]%d", check, &playerrace);
        }
       }
@@ -123,6 +128,7 @@ int main(void)
    }
    printf("%s, gebe deinem Charakter nun ein Geschlecht!\n", name);
    printf("Drücke 8 für männlich oder 9 für weiblich!\n");
+   fflush(stdout);
    int playergender;
    int male;
    int female;
@@ -133,7 +139,7 @@ int main(void)
     if ( playergender == 8)
     {
      printf("Dein Charakter ist nun männlich!\n");
-     playergender == male;
+     playergender = male;
      strcpy(igend, "männlich");
      break;
     }
@@ -142,7 +148,7 @@ int main(void)
       if ( playergender == 9 )
       { 
        printf("Deine Charakterin ist nun weiblich!\n");
-       playergender == female;
+       playergender = female;
        strcpy(igend, "weiblich");
        break;
       }
@@ -150,16 +156,19 @@ int main(void)
        {
         printf("Deine Eingabe war falsch!\n");
 	printf("Drücke erneut die Taste 8 für einen Charakter oder 9 für eine Charakterin!\n");
+	fflush(stdout);
 	scanf("%[^0-9]%d", check,  &playergender);
        }
       }
     }
     char playername[100];
     printf("Gebe deiner/deinem Charakter/in einen Namen!\n");
+    fflush(stdout);
     scanf("%s", playername);
     printf("Wunderbar, dein Charakter heißt nun %s!\n", playername);
     printf("Willst du dir noch einmal alle deine Daten anzeigen lassen?\n");
     printf("Für Ja drücke 0 , für Nein drücke 1\n");
+    fflush(stdout);
     int yesno;
     scanf("%d", &yesno);
     if ( yesno = 0 )
