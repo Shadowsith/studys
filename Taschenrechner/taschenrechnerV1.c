@@ -4,6 +4,7 @@
 #include<math.h>
 
 #define OK 0
+#define ERROR 1
 
 int main(void)
 {
@@ -66,7 +67,7 @@ int main(void)
 	  if (b == 0)
 	  { 
 	   printf("Du darfst nicht durch 0 Teilen!\nStarte das Programm erneut!\n");
-	   return OK;
+	   return ERROR;
 	  }
           c = a / b;
 	  break;
@@ -90,6 +91,12 @@ int main(void)
              fflush(stdout);
              scanf("%f %f", &a, &b);
              printf("Du rechnest nun %.2f-te√%.2f\n", b, a);
+	     if ( b < 0 )
+	     {
+	      printf("Mathematischer Fehler! Der Radiant darf keine negative Zahl sein!\n");
+	      printf("Starte das Programm erneut!\n");
+	      return ERROR;
+	     }
              c = pow(a,1/b);
 	     break;
 	    }
