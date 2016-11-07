@@ -1,16 +1,16 @@
 
 
-int add( float a, float b);
+int add1( float a, float b);
 
-int sub (float a, float b);
+int sub1 (float a, float b);
 
-int mult (float a, float b);
+int mult1 (float a, float b);
 
-int divs  (float a, float b);
+int divs1  (float a, float b);
 
-int modulo (int a, int b);
+int modulo1 (int a, int b);
 
-int multiply (float a, float b);
+int multiply1 (float a, float b);
 
-int rootext (float a, float b);
+int rootext1 (float a, float b);
 

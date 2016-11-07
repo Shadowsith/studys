@@ -6,12 +6,13 @@
 
 int main(void) {
 
-float a, b, c, d, e, f;
+float a, b, c, d, e, f, g, h;
+scanf("%f %f", &g, &h);
 
-a = add(1,2);
+a = add(g,h);
 printf("%f\n", a);
 
-b = sub(1,2);
+b = sub(g,h);
 printf("%f\n", b);
 
 return 0;
