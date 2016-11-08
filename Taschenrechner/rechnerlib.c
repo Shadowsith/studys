@@ -7,13 +7,12 @@
 int main(void) {
 
 float a, b, c, d, e, f, g, h;
-scanf("%f %f", &g, &h);
+int chooseoperator;
+welcome();        //Begrüßung
 
-a = add(g,h);
-printf("%f\n", a);
 
-b = sub(g,h);
-printf("%f\n", b);
+
+
 
 return 0;
 }
