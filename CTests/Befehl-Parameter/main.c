@@ -2,34 +2,82 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "befehle.h"
+#include "functions.h"
 
 #define OK 0
 #define ERR 1
 
 int main(void) {
 
-char cmd[20] = "cmds";
+char cmd[8] = "cmds\n";
+char input_t[15] = "input_text\n";
+char output_t[15] = "output_text\n";
+char end[10] = "endall\n";
 char eingabe[20];
 
-int pcmd = strlen(cmd);
-printf("%d", pcmd);
-
-printf("Gebe einen Befehl ein:\n");
+printf("Wilkommen!\n");
 printf("Hinweis: Mit cmds lassen sich alle Befehle anzeigen!\n");
-fflush(stdout);
 
-//scanf("%s", eingabe);
-fgets(eingabe, sizeof(eingabe), stdin);
-
-
-if ( strcmp(cmd,eingabe) == 0 )
+do
 {
-  cmds();
+ printf("Bitte Befehl eingeben!\n");
+ fflush(stdout);
+ fgets(eingabe, 20, stdin);
+ 
+ if ( strcmp(cmd, eingabe) == 0 )
+  {
+   cmds();
+  }
+  else if ( strcmp(input_t, eingabe) == 0)
+       { 
+        input_text();
+        //continue;
+               }
+       else if ( strcmp(output_t, eingabe) == 0)
+            {
+             output_text();
+            // continue;
+            }
+            else if ( strcmp(end,eingabe) == 0 )
+                 {
+                  endall();
+                 }
+                  else 
+                  {   
+                   printf("Befehl nicht gefunden!\n");
+                  }
+
+
 }
-else
-{
-  printf("Befehl nicht gefunden!\n");
-  return 1;
-}
-}
+while ( strcmp(end, eingabe) != 0);
+
+/* if ( strcmp(cmd, eingabe) == 0 )
+  {
+   cmds();
+   break;
+  }
+  else if ( strcmp(input_t, eingabe) == 0)
+       { 
+        input_text();
+        continue;
+               }
+       else if ( strcmp(output_t, eingabe) == 0)
+            {
+             output_text();
+             continue;
+            }
+            else if ( strcmp(end,eingabe) == 0 )
+                 {
+                  endall();
+                 }
+                  else 
+                  {   
+                   printf("Befehl nicht gefunden!\nBitte neue Eingabe!");
+                   fflush(stdout);
+                   fgets(eingabe, 20, stdin);
+                  }
+
+*/
+
+ return 0;
+} 
