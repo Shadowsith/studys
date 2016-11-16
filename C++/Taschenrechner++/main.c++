@@ -2,30 +2,25 @@
 #include<string>
 #include<math.h>
 
-int readFloat (float a, float b) {
+enum rescode {
+	OK,
+	ERR,
+};
 
-while(!(std::cin >> a >> b)) {
-    std::cin.clear();
-    std::cin.ignore(1000, '\n');
-    std::cout <<  "Wert war keine Zahl!" << std::endl;
-    }
-}
+float betweenvalue = 0;
 
-int readInt (int a) {
-
-while(!(std::cin >> a)) {
-    std::cin.clear();
-    std::cin.ignore(1000, '\n');
-    std::cout <<  "Wert war keine Zahl!" << std::endl;
-    }
+int valueout() {
+	std::cout << betweenvalue << std::endl;
+	return OK;
 }
 
 int main(void) {
 
 int chooseop;
-float betweenvalue;
+//float betweenvalue;
 float a;
 float b;
+bool check = true;
 
 std::cout << "Willkommen bei meinem kleinen C++ Taschenrechner!" << std::endl;
 std::cout << "Du kannst hier zwei Zahlen:" << std::endl;
@@ -33,20 +28,58 @@ std::cout << "Addieren (1)\nSubtrahieren (2)\nMultiplizieren (3)\nDividieren (4)
 std::cout << "Potenzieren (5)\nRadizieren (6)" << std::endl;
 
 std::cout << "Gebe zunächst zwei Werte a und b an und danach wie sie verrechnet werden sollen" << std::endl;
-readFloat(a, b);
+
+while(!(std::cin >> a >> b)) {
+    std::cin.clear();
+    std::cin.ignore(1000, '\n');
+    std::cout <<  "Wert war keine Zahl!" << std::endl;
+    }
+
 
 std::cout << "Wähle nun eine Funktion von oben (bitte nur die Nummer eingeben)!" << std::endl;
-readInt(chooseop);
+//readInt(chooseop);
+//std::cin >> chooseop;
 
+//Eigentlicher Taschenrechner
 do {
-if ( chooseoption == 1 ) {
-     std::cout << "Addition!" << std::endl;
+std::cin >> chooseop;
+if ( chooseop == 1 && check == true  ) {
+     std::cout << "Addition! (a+b)" << std::endl;
+     betweenvalue = a+b;
+     std::cout << betweenvalue << std::endl;
    }
-   else if (chooseoption == 2) {
-            std::cout << "Subtraktion!" << std::endl;
+   else if (chooseop == 2) {
+            std::cout << "Subtraktion! (a-b)" << std::endl;
+	    betweenvalue = a-b;
+	    valueout();
+	    }
+	    else if ( chooseop == 3) {
+	    std::cout << "Multiplikation! (a*b)" << std::endl;
+	    betweenvalue = a*b;
+	    valueout();
+	    }
+	    else if ( chooseop == 4) {
+	    std::cout << "Division! (a/b)" << std::endl;
+	    betweenvalue = a/b;
+	    valueout();
+	    }
+	    else if (chooseop == 5) {
+	    std::cout << "Potenzieren! (a^b)" << std::endl;
+	    betweenvalue = pow(a,b);
+	    valueout();
+	    }
+	    else if (chooseop == 6) {
+	    std::cout << "Radizieren! (Wurzel b von a)" << std::endl;
+	    betweenvalue = pow(a,1/b);
+	    valueout();
+	    }
+	    else {
+	    check = false;
+	    }
 
    } 
-while( chooseoption < 10);
+while( check == true);
 
+return OK;
 }
 
