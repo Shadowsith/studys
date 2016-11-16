@@ -12,6 +12,7 @@ int main(void) {
 char cmd[8] = "cmds\n";
 char input_t[15] = "input_text\n";
 char output_t[15] = "output_text\n";
+char sequences[15] = "sequence\n";
 char end[10] = "endall\n";
 char eingabe[20];
 
@@ -38,46 +39,23 @@ do
              output_text();
             // continue;
             }
-            else if ( strcmp(end,eingabe) == 0 )
+            else if ( strcmp(sequences,eingabe) == 0 )
                  {
-                  endall();
+                  sequence();
                  }
-                  else 
-                  {   
+                  else if ( strcmp(end,eingabe) == 0) 
+		  {
+		   endall();
+		  }
+		   else
+                   {   
                    printf("Befehl nicht gefunden!\n");
-                  }
+		   fflush(stdout);
+                   }
 
 
 }
 while ( strcmp(end, eingabe) != 0);
 
-/* if ( strcmp(cmd, eingabe) == 0 )
-  {
-   cmds();
-   break;
-  }
-  else if ( strcmp(input_t, eingabe) == 0)
-       { 
-        input_text();
-        continue;
-               }
-       else if ( strcmp(output_t, eingabe) == 0)
-            {
-             output_text();
-             continue;
-            }
-            else if ( strcmp(end,eingabe) == 0 )
-                 {
-                  endall();
-                 }
-                  else 
-                  {   
-                   printf("Befehl nicht gefunden!\nBitte neue Eingabe!");
-                   fflush(stdout);
-                   fgets(eingabe, 20, stdin);
-                  }
-
-*/
-
- return 0;
+return 0;
 } 

@@ -12,6 +12,7 @@ int cmds () {
   printf("Alle Befehle des Programms:\n");
   printf("input_text\n");
   printf("output_text\n");
+  printf("sequence\n");
   printf("endall\n");
   return 0;
 }
@@ -40,6 +41,26 @@ int endall () {
     printf("Programmende");
     return 1;
 }
+
+//Folgenrechner
+
+int sequence () {
+int a0 = 2.;
+int n;
+
+for (int n = 0; n < 7; n++) {
+float anplus = a0+n;
+float an = (1./4)*anplus;
+printf("\t%.2f\n", an);
+fflush(stdout);
+}
+return 0;
+}
+
+
+
+
+
 
 
 
