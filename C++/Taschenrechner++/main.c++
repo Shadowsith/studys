@@ -2,12 +2,14 @@
 #include<string>
 #include<math.h>
 
+//#include "functions.h"
+
 enum rescode {
 	OK,
 	ERR,
 };
 
-float betweenvalue = 0;
+float betweenvalue;
 
 int valueout() {
 	std::cout << betweenvalue << std::endl;
@@ -30,57 +32,109 @@ std::cout << "Potenzieren (5)\nRadizieren (6)" << std::endl;
 std::cout << "Gebe zunächst zwei Werte a und b an und danach wie sie verrechnet werden sollen" << std::endl;
 
 while(!(std::cin >> a >> b)) {
-    std::cin.clear();
-    std::cin.ignore(1000, '\n');
-    std::cout <<  "Wert war keine Zahl!" << std::endl;
-    }
+std::cin.clear();
+std::cin.ignore(1000, '\n');
+std::cout <<  "Wert war keine Zahl!" << std::endl;
+}
 
 
-std::cout << "Wähle nun eine Funktion von oben (bitte nur die Nummer eingeben)!" << std::endl;
+//std::cout << "Wähle nun eine Funktion von oben (bitte nur die Nummer eingeben)!" << std::endl;
 //readInt(chooseop);
 //std::cin >> chooseop;
 
 //Eigentlicher Taschenrechner
 
-std::string further;
+char further;
+int newop;
+
 
 do {
+std::cout << "Wähle 1 (a und b verechnen), 2 um weiterzurechnen, 3 um neue Werte einzugeben\n" << std::endl;
 std::cin >> chooseop;
 if ( chooseop == 1 && check == true  ) {
-     std::cout << "Addition! (a+b)" << std::endl;
-     betweenvalue = a+b;
-     std::cout << betweenvalue << std::endl;
-   }
-   else if (chooseop == 2) {
-            std::cout << "Subtraktion! (a-b)" << std::endl;
-	        betweenvalue = a-b;
-	        valueout();
-	        }
-	        else if ( chooseop == 3) {
-	        std::cout << "Multiplikation! (a*b)" << std::endl;
-	        betweenvalue = a*b;
-	        valueout();
-            std::cout << "Willst du mit dem Ergebnis weiterrechnen?" << std::endl;
-            std::cout << "Drücke j für Ja und n für nein" << std::endl;
-            std::cin >> further;
-            if (
-	        }
-	        else if ( chooseop == 4) {
-	        std::cout << "Division! (a/b)" << std::endl;
-	        betweenvalue = a/b;
-	        valueout();
-	        }
-	        else if (chooseop == 5) {
-	        std::cout << "Potenzieren! (a^b)" << std::endl;
-	        betweenvalue = pow(a,b);
-	        valueout();
-	        }
-	        else if (chooseop == 6) {
-	        std::cout << "Radizieren! (Wurzel b von a)" << std::endl;
-	        betweenvalue = pow(a,1/b);
-	        valueout();
-	        }
-	        else {
+     
+       std::cout << "Du kannst jetzt weitere Berechnungen durchführen" << std::endl;
+       std::cout << "Wähle nun eine Berechnung Add (1) Sub (2) Mult (3) Div (4) Pot (5) Rad (6)" << std::endl;
+       std::cin >> newop;
+       switch (newop) {
+       case 1:
+       betweenvalue = a+b;
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       case 2:
+       betweenvalue = a-b;
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       case 3:
+       betweenvalue = a*b;
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       case 4:
+       betweenvalue = a/b;
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       case 5:
+       betweenvalue = pow(a,b);
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       case 6:
+       betweenvalue = pow(a,1/b);
+       std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+       break;
+       default: 
+       std::cout << "Falsche Eingabe!" << std::endl;
+       break;
+       }   
+       
+       }
+       else if (chooseop == 2) {
+           std::cout << "Du kannst jetzt weitere Berechnungen durchführen" << std::endl;
+            std::cout << "Wähle nun eine Berechnung Add (1) Sub (2) Mult (3) Div (4) Pot (5) Rad (6)" << std::endl;
+            std::cin >> newop;
+            std::cout << "Wähle nun eine Zahl mit der du das bisherige Ergebnis verrechnen kannst" << std::endl;
+            std::cin >> a;
+            switch (newop) {
+            case 1:
+            betweenvalue += a;
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+            break;
+            case 2:
+            betweenvalue -= a;
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+            break;
+            case 3:
+            betweenvalue *= a;
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+           break;
+            case 4:
+            betweenvalue /= a;
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+            break;
+            case 5:
+            betweenvalue = pow(betweenvalue,a);
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+            break;
+            case 6:
+            betweenvalue += pow(betweenvalue,1/a);
+            break;
+            std::cout << "Das Ergebnis ist: " << betweenvalue << std::endl;
+            default: 
+            std::cout << "Falsche Eingabe!" << std::endl;
+            break;
+            }   
+            }
+       else if (chooseop == 3) {
+            betweenvalue = 0;
+            a = 0;
+            b = 0;
+            std::cout << "Bitte neue Werte für a und b eingeben" << std::endl;
+            while(!(std::cin >> a >> b)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout <<  "Wert war keine Zahl!" << std::endl;
+            }
+            }
+            else {
 	        check = false;
 	        }
 
