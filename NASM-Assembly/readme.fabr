@@ -1,0 +1,24 @@
+This folder contains:
+
+-programms where I test something (assemblytests)
+-Collatz sequence (collatz)
+-Fibonacci sequence (fibonacci)
+-Hello World in assembly (helloworld)
+-programm that can test the correctness of your german identity card (identitycard)
+-programms which I made in my study lessons (lessons)
+
++various C programms which representates the same as the assembly code
+
+For all those who have no experiance with Assembly and especialy NASM:
+
+on Linux:
+       nasm -f elf32 filename.asm           //Makes a object file
+       gcc -m32 filename.o -o binary        //Link the object file to binary
+       gcc -m32 file1.o file2.o -o binary   //Link more files (esp. subroutines) to a binary
+
+on Windows:
+       no idea, don't care about :)
+
+
+!! printf's in the files are already in german !!
+!! translate this, if I have enought time for  !!
