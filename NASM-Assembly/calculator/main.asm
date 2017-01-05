@@ -1,6 +1,7 @@
 global main
 extern printf, scanf
-extern subradd, subrsub, subrmul
+extern subradd, subrsub
+extern subrmul, subrdiv
 
 
 section .data
@@ -72,6 +73,8 @@ mul_ch:
  jmp end
 
 div_ch:
+
+ call subrdiv
 
  jmp end
 
