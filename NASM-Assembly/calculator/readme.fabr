@@ -1,0 +1,7 @@
+This programm contains:
+
+main.asm    -> where you can see the basic program structure
+
+subr***.asm -> subroutines which describes the calculation sequence
+
+makefile    -> easy to link all files
