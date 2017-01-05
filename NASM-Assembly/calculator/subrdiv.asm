@@ -8,7 +8,7 @@ a: dd 0
 b: dd 0
 res: dd 0
 
-msg: db "Gib zwei Werte a,b ein um a/b zu rechnen",10,0
+msg: db "Enter two values a and b to divide a/b",10,0
 in:  db "%f %f",0
 out: db "Ergebnis: %.1f",10,0
 

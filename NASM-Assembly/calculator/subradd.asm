@@ -4,7 +4,7 @@ extern scanf
 
 section .data
 
-msg: db "Gib zwei Werte zum addieren ein",10,0
+msg: db "Enter two values which you want to sum up",10,0
 a: dd 0
 b: dd 0
 res: dd 0

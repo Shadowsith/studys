@@ -8,7 +8,7 @@ a: dd 0
 b: dd 0
 res: dd 0
 
-msg: db "Gib zwei Werte zum multiplizieren ein:",10,0
+msg: db "Enter to values to multiply:",10,0
 in:  db "%f %f",0
 out: db "Ergebnis: %.1f",10,0
 
