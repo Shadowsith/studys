@@ -10,7 +10,7 @@ res: dd 0
 
 msg: db "Enter two vaules a and b to subtract a - b:",10,0
 in:  db "%f %f",0
-out: db "Ergebnis: %.1f",10,0
+out: db "Result: %.1f",10,0
 
 section .text
 
