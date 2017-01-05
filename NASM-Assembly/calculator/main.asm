@@ -1,6 +1,7 @@
 global main
-extern printf
-extern scanf
+extern printf, scanf
+extern subradd, subrsub, subrmul
+
 
 section .data
 
@@ -54,33 +55,19 @@ end:
 
 add_ch:
  
- push a
- push in
- call scanf
- add  esp,8
- 
- push b
- push in
- call scanf
- add  esp,8
- 
- mov eax,[a]
- add eax,[b]
-
- push eax
- push out
- call printf
- add  esp,8
-
- 
+ call subradd 
 
  jmp end
 
 sub_ch:
+ 
+ call subrsub
 
  jmp end
 
 mul_ch:
+ 
+ call subrmul
 
  jmp end
 
